@@ -1,15 +1,24 @@
-const bcrypt = require('bcryptjs');
-const model = require('../models/usersModel');
+const jwt = require('jsonwebtoken');
 
-//Custom middleware to check if a session exists, and if the user is logged in (stored a username in the session)
-
+const secrets = require('../secret/secrets');
 
 module.exports = function restricted(req, res, next) {
-    if (req.session && req.session.username) {
-        next();
+    const token = req.headers.authorization;
+
+    if (token) {
+        jwt.verify(token, secrets.jwtSecret, (err, decodeToken) => {
+            if (err) { //invalid token
+                res.status(401).json({
+                    message: 'You shall not pass.'
+                });
+            } else { //valid token
+                req.user = {department: decodeToken.department, username: decodeToken.username};
+                next();
+            }
+        })
     } else {
-        res.status(401).json({
-            message: 'You shall not pass'
-        });
+        res.status(400).json({
+            message: 'No token provided.'
+        })
     }
 };

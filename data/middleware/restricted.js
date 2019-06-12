@@ -2,7 +2,9 @@ const jwt = require('jsonwebtoken');
 
 const secrets = require('../secret/secrets');
 
-module.exports = function restricted(req, res, next) {
+module.exports = (req, res, next) => {
+    console.log('inside restricted ---------');
+    console.log(req.headers.authorization);
     const token = req.headers.authorization;
 
     if (token) {

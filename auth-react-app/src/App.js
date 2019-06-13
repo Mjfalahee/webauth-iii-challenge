@@ -3,7 +3,7 @@ import { NavLink, Route } from 'react-router-dom';
 
 import './App.css';
 import Login from './auth/Login.js';
-import SignUp from './auth/SignUp';
+import SignUp from './auth/SignUp.js';
 import UserList from './users/UserList';
 
 class App extends React.Component {

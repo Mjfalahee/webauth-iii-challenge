@@ -1,17 +1,20 @@
 import React from 'react';
 import axios from 'axios';
 
+import '../auth/addInterceptors';
+import withAuth from '../auth/withAuth';
+
 class UserList extends React.Component {
     state = {
         users: []
     };
 
     componentDidMount() {
-        const end = 'http://localhost:5000/api/users'
         axios
-            .get(end)
+            .get('http://localhost:5000/api/users')
             .then(res => {
                 console.log('users', res.data);
+                this.setState({users: res.data.users });
             })
             .catch(err => {
                 console.error('users error', err.response)
@@ -24,7 +27,7 @@ class UserList extends React.Component {
                 <h3>Users</h3>
                 <ul>
                     {this.state.users.map(user => {
-                       return <li key={user.id}>{user.username}, {user.department}</li>
+                       return <li key={user.id}>{user.username}</li>
                     })}
                 </ul>
             </div>
@@ -33,4 +36,4 @@ class UserList extends React.Component {
 }
 
 
-export default UserList;
+export default withAuth(UserList);

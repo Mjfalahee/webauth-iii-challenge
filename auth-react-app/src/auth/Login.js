@@ -35,19 +35,22 @@ export default class Login extends React.Component {
             <div>
                 <h1> Login </h1>
                 <form onSubmit={this.handleSubmit}>
-                    <input className="username" 
+                    <input className="username"
+                    placeholder="username" 
                     id='username'
                     type='text' 
                     value={this.state.username} 
                     onChange={this.handleChanges}
                     />
                     <input className="department"
+                    placeholder="department"
                     id='department'
                     type='text' 
                     value={this.state.department}
                     onChange={this.handleChanges}
                     />
                     <input className="password"
+                    placeholder="password"
                     id='password' 
                     type='password' 
                     value={this.state.password} 

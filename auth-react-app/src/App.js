@@ -4,6 +4,7 @@ import { NavLink, Route } from 'react-router-dom';
 import './App.css';
 import Login from './auth/Login.js';
 import SignUp from './auth/SignUp';
+import UserList from './users/UserList';
 
 class App extends React.Component {
 
@@ -20,10 +21,12 @@ class App extends React.Component {
         <nav>
           <NavLink to="/login"> Login </NavLink>
           <NavLink to="/signup"> Sign Up </NavLink>
+          <NavLink to="/users"> Users </NavLink>
           <button onClick={this.logoutHandler}> Logout </button>
         </nav>
         <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
+        <Route path="/users" component={UserList} />
       </div>
     );
   }

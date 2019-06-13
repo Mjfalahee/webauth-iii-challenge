@@ -23,7 +23,7 @@ export default class SignUp extends React.Component {
                 this.props.history.push('/login')
             })
             .catch(error => {
-                console.log(error);
+                console.log(error.response);
             })
     }
 

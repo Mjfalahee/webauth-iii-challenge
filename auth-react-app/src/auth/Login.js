@@ -26,7 +26,7 @@ export default class Login extends React.Component {
                 this.props.history.push('/users');
             })
             .catch(error => {
-                console.log('Login Error', error);
+                console.log('Login Error', error.response);
             })
     }
 

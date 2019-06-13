@@ -24,6 +24,7 @@ export default class Login extends React.Component {
                 console.log('Login Response', res.data);
                 localStorage.setItem('token', res.data.token);
                 this.props.history.push('/users');
+                window.location.reload();
             })
             .catch(error => {
                 console.log('Login Error', error.response);

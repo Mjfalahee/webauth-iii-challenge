@@ -14,7 +14,7 @@ class UserList extends React.Component {
             .get('http://localhost:5000/api/users')
             .then(res => {
                 console.log('users', res.data);
-                this.setState({users: res.data.users });
+                this.setState(() => ({users: res.data.users }));
             })
             .catch(err => {
                 console.error('users error', err.response)

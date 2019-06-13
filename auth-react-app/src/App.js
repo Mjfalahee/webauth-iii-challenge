@@ -3,6 +3,7 @@ import { NavLink, Route } from 'react-router-dom';
 
 import './App.css';
 import Login from './auth/Login.js';
+import SignUp from './auth/SignUp';
 
 class App extends React.Component {
 
@@ -18,9 +19,11 @@ class App extends React.Component {
         <h3> Auth Challenge. </h3>
         <nav>
           <NavLink to="/login"> Login </NavLink>
+          <NavLink to="/signup"> Sign Up </NavLink>
           <button onClick={this.logoutHandler}> Logout </button>
         </nav>
-        <Route path="/login" component={Login}></Route>
+        <Route path="/login" component={Login} />
+        <Route path="/signup" component={SignUp} />
       </div>
     );
   }

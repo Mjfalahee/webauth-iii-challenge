@@ -23,7 +23,7 @@ export default class Login extends React.Component {
             .then(res => {
                 console.log('Login Response', res.data);
                 localStorage.setItem('token', res.data.token);
-                // this.props.history.push('/users');
+                this.props.history.push('/users');
             })
             .catch(error => {
                 console.log('Login Error', error);
